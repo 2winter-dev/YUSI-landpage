@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APP開發｜網頁設計 - YUSI SEO公司</title>
+    <meta name="description" content="YUSI 是您在數字領域值得信賴的合作夥伴，專注於APP開發、網頁設計以及專業SEO服務。我們提供高效的搜索引擎優化方案，打造令人印象深刻的網頁設計和功能強大的手機應用程序。">
+    <meta name="keywords" content="APP開發, 網頁設計, SEO公司, 數字營銷, 在線廣告, 電子商務">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --accent-color: #e74c3c;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            height: 40px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .cta-button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: #2980b9;
+        }
+        
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            margin: 40px 0 20px;
+        }
+        
+        h3 {
+            font-size: 1.8rem;
+            margin: 30px 0 15px;
+        }
+        
+        h4 {
+            font-size: 1.4rem;
+            margin: 20px 0 10px;
+        }
+        
+        h5 {
+            font-size: 1.2rem;
+            margin: 15px 0;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .services {
+            padding: 100px 0;
+        }
+        
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .about {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            color: white;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .cta-button-white {
+            background-color: white;
+            color: var(--primary-color);
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        
+        .cta-button-white:hover {
+            background-color: #f8f9fa;
+            transform: scale(1.05);
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h4 {
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+        
+        /* 科技风背景 */
+        .tech-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #2c3e50, #3498db, #2ecc71);
+            opacity: 0.7;
+            z-index: 1;
+        }
+        
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <img src="https://yusihk.com/wp-content/uploads/2024/08/ge5d812fb635d8a7a0e1c91366646abe15cbce00fb44a2979a4b75356f43d68c4613881681c22e40016eaee3b150f48195659088ae355a25565565e6fa80ba4ad_1280-1850804.jpg" alt="YUSI Logo" class="logo">
+                <div class="nav-links">
+                    <a href="#services">服務</a>
+                    <a href="#about">關於我們</a>
+                    <a href="#contact">聯絡我們</a>
+                </div>
+                <a href="https://yusihk.com" class="cta-button" id="cvm1fn406opfgg9s3jv0">立即聯絡</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="tech-bg"></div>
+        <div class="particles" id="particles"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>APP開發｜網頁設計 - YUSI SEO公司</h1>
+                <p>YUSI 是您在數字領域值得信賴的合作夥伴，專注於APP開發、網頁設計以及專業SEO服務。我們提供高效的搜索引擎優化方案，打造令人印象深刻的網頁設計和功能強大的手機應用程序。</p>
+                <a href="https://yusihk.com" class="cta-button" id="cvm1fn406opfgg9s3jv0">了解更多</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="container">
+            <h2>我們的服務</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>APP開發</h3>
+                    <p>打造企業數位化競爭力的關鍵。我們提供iOS和Android平台的原生或跨平台APP開發服務，確保應用在各種設備上都能高效運行。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💻</div>
+                    <h3>網頁設計</h3>
+                    <p>企業在線形象與體驗的塑造者。我們採用響應式設計，確保網站在各種設備上都能完美呈現，同時提升用戶體驗和搜索引擎排名。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔍</div>
+                    <h3>SEO優化</h3>
+                    <p>企業在線能見度的核心驅動力。我們提供全方位的搜索引擎優化服務，助力企業在搜索引擎結果頁面中獲得更高的排名。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <h2>關於 YUSI</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>YUSI 是您在數字領域值得信賴的合作夥伴，專注於APP開發、網頁設計以及專業SEO服務。作為一家傑出的SEO公司，我們不僅提供高效的搜索引擎優化方案，還擅長打造令人印象深刻的網頁設計和功能強大的手機應用程序。</p>
+                    <p>我們的專業團隊，憑藉其在網頁界面設計（web UI/UX design）、搜索引擎優化（SEO service）和APP開發方面的深厚造詣，精心策劃並執行每一個項目。我們致力於創造出不僅美觀而且高效的應用程序，確保它們在網絡和移動設備上都能流暢運行，同時提升您的網站在搜索引擎中的排名。</p>
+                    <p>我們對數字營銷、在線廣告、SEO優化、網站設計、電子商務和APP開發充滿熱情，始終追求卓越。</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://yusihk.com/wp-content/uploads/2024/08/pexels-photo-326502-326502.jpg" alt="YUSI Team">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>準備開始您的數字轉型之旅？</h2>
+            <p>無論您需要APP開發、網頁設計還是SEO優化，我們的專業團隊都能為您提供量身定制的解決方案，幫助您在數字領域取得成功。</p>
+            <a href="https://yusihk.com" class="cta-button-white" id="cvm1fn406opfgg9s3jv0">立即聯絡我們</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>YUSI</h4>
+                    <p>您的數字領域值得信賴的合作夥伴</p>
+                    <div class="social-links">
+                        <a href="#"><span>FB</span></a>
+                        <a href="#"><span>TW</span></a>
+                        <a href="#"><span>IG</span></a>
+                        <a href="#"><span>LI</span></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>服務</h4>
+                    <ul>
+                        <li><a href="https://yusihk.com">APP開發</a></li>
+                        <li><a href="https://yusihk.com">網頁設計</a></li>
+                        <li><a href="https://yusihk.com">SEO優化</a></li>
+                        <li><a href="https://yusihk.com">數字營銷</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>資源</h4>
+                    <ul>
+                        <li><a href="https://yusihk.com/blog">博客</a></li>
+                        
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>聯絡我們</h4>
+                    <ul>
+                        <li>中环皇后大道中183号中远大厦28楼2809室</li>
+                        <li>Mon-Sat: 10am - 5pm</li>
+                        <li><a href="https://yusihk.com" id="cvm1fn406opfgg9s3jv0">訪問網站</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 YUSI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 科技风背景粒子效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const canvas = document.createElement('canvas');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            document.getElementById('particles').appendChild(canvas);
+            
+            const ctx = canvas.getContext('2d');
+            const particles = [];
+            const particleCount = 100;
+            const maxDistance = 150;
+            
+            // 创建粒子
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    radius: Math.random() * 2 + 1,
+                    color: `rgba(255, 255, 255, ${Math.random() * 0.5 + 0.5})`,
+                    speedX: Math.random() * 1 - 0.5,
+                    speedY: Math.random() * 1 - 0.5
+                });
+            }
+            
+            // 动画循环
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                // 更新和绘制粒子
+                for (let i = 0; i < particles.length; i++) {
+                    const p = particles[i];
+                    
+                    // 移动粒子
+                    p.x += p.speedX;
+                    p.y += p.speedY;
+                    
+                    // 边界检查
+                    if (p.x < 0 || p.x > canvas.width) p.speedX = -p.speedX;
+                    if (p.y < 0 || p.y > canvas.height) p.speedY = -p.speedY;
+                    
+                    // 绘制粒子
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = p.color;
+                    ctx.fill();
+                    
+                    // 绘制连接线
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const p2 = particles[j];
+                        const distance = Math.sqrt(
+                            Math.pow(p.x - p2.x, 2) + Math.pow(p.y - p2.y, 2)
+                        );
+                        
+                        if (distance < maxDistance) {
+                            ctx.beginPath();
+                            ctx.strokeStyle = `rgba(255, 255, 255, ${1 - distance / maxDistance})`;
+                            ctx.lineWidth = 0.5;
+                            ctx.moveTo(p.x, p.y);
+                            ctx.lineTo(p2.x, p2.y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+                
+                requestAnimationFrame(animate);
+            }
+            
+            animate();
+            
+            // 响应窗口大小变化
+            window.addEventListener('resize', function() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            });
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
